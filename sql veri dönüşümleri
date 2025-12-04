@@ -1,14 +1,14 @@
 /*
-tam sayılar:
+tam sayÄ±lar:
 bigint
 int
 smallint
 tinyint
 
-Kesirli sayılar:
+Kesirli sayÄ±lar:
 float
 
-Diğer biçimler:
+DiÄŸer biÃ§imler:
 decimal
 numeric
 bit
@@ -19,12 +19,12 @@ date
 datetime
 smalldate
 
-yazıtipleri:
+yazÄ±tipleri:
 char(n)
 varchar(n)
 text(n)
 
-Tip dönüşümü iki şekilde yapılabilir.
+Tip dÃ¶nÃ¼ÅŸÃ¼mÃ¼ iki ÅŸekilde yapÄ±labilir.
 
 cast (degisken_adi as veri_tipi(uzunluk))
 
@@ -53,7 +53,7 @@ set @vizenotu = 45 set @final = 50;
 print cast('123'as int)+44
 set @yeni = cast ('123'as int)+44
 print 'sonuc' + cast (@vizenotu as varchar(10))
-print @adisoyadi+',Ortalamanız..:'+cast ((@vizenotu+@final)/2as nvarchar(10))
+print @adisoyadi+',OrtalamanÄ±z..:'+cast ((@vizenotu+@final)/2as nvarchar(10))
 print @@servername
 */
 
@@ -77,13 +77,13 @@ end as bolumdurumu
 from pers
 
 
---maaşı 50000-80000 arası olanlar yüksek maaş,
---50000 altında olanlar düşük maaş bunlara dahil değilse başka maaş diye listelensin, ad soyad ile birlikte.
+--maaÅŸÄ± 50000-80000 arasÄ± olanlar yÃ¼ksek maaÅŸ,
+--50000 altÄ±nda olanlar dÃ¼ÅŸÃ¼k maaÅŸ bunlara dahil deÄŸilse baÅŸka maaÅŸ diye listelensin, ad soyad ile birlikte.
 select ad,soyad,
 case
-when maas <50000 then 'düşük maaş'
-when maas between 50000 and 80000 then 'yüksek maas'
-else 'başka maaş'
+when maas <50000 then 'dÃ¼ÅŸÃ¼k maaÅŸ'
+when maas between 50000 and 80000 then 'yÃ¼ksek maas'
+else 'baÅŸka maaÅŸ'
 end as Maasmiktari
 from pers
 */
@@ -95,36 +95,36 @@ declare @vize as tinyint
 declare @vizedurumu as nvarchar(10)
 set @vize = 55;
 set @vizedurumu = case
-when @vize<50 then 'kaldı'
-when @vize>=50 then 'geçti'
-else 'sınava girmedi'
+when @vize<50 then 'kaldÄ±'
+when @vize>=50 then 'geÃ§ti'
+else 'sÄ±nava girmedi'
 end
 print @vizedurumu
 
 ----------------
---bir değişken tanımlayın, bu değişkene personel tablosunda
---bulunan ilk kaydın bölüm kodunu değer olarak atayın ve ekrana yazdırın.
+--bir deÄŸiÅŸken tanÄ±mlayÄ±n, bu deÄŸiÅŸkene personel tablosunda
+--bulunan ilk kaydÄ±n bÃ¶lÃ¼m kodunu deÄŸer olarak atayÄ±n ve ekrana yazdÄ±rÄ±n.
 declare @bolumkod as tinyint
 select top 1 @bolumkod=bolno from pers
 print @bolumkod
 
 ----------------
---bir değişken tanımlayın, bu değişkene personel tablosunda
---bölüm kodlarının tamamını bu değişkene atayın ve ekrana yazdırın
+--bir deÄŸiÅŸken tanÄ±mlayÄ±n, bu deÄŸiÅŸkene personel tablosunda
+--bÃ¶lÃ¼m kodlarÄ±nÄ±n tamamÄ±nÄ± bu deÄŸiÅŸkene atayÄ±n ve ekrana yazdÄ±rÄ±n
 declare @tablo table (bolno tinyint)
 insert into @tablo select bolno from pers
 select * from @tablo
 */
 
 /*
---if else yapısı diğer programlama dillerindeki kullanım şekline benzer
-if(koşul)
+--if else yapÄ±sÄ± diÄŸer programlama dillerindeki kullanÄ±m ÅŸekline benzer
+if(koÅŸul)
 	begin
-	--eğer koşulumuz doğru ise bu alandaki ifade çalışır
+	--eÄŸer koÅŸulumuz doÄŸru ise bu alandaki ifade Ã§alÄ±ÅŸÄ±r
 	end
 else
 	begin
-	--eğer koşulumuz yanlış ise bu alandaki ifade çalışır
+	--eÄŸer koÅŸulumuz yanlÄ±ÅŸ ise bu alandaki ifade Ã§alÄ±ÅŸÄ±r
 	end
 */
 
@@ -133,10 +133,10 @@ declare @sayi int
 select @sayi = count(*) from pers
 if (@sayi>5)
 begin
-	print'5 den fazla kayıt var.'
+	print'5 den fazla kayÄ±t var.'
 end
 else begin
-	print'5 den az kayıt var.'
+	print'5 den az kayÄ±t var.'
 end
 */
 
@@ -146,21 +146,21 @@ begin
 	print 'aylardan ekim'
 	if (year(getdate())%2 =0)
 	begin
-		print 'çift bir yıldayız.'
+		print 'Ã§ift bir yÄ±ldayÄ±z.'
 	end
 	else 
 	begin
-		print'tek bir yıldayız.'
+		print'tek bir yÄ±ldayÄ±z.'
 	end
 end
 else begin
 	if (year(getdate())%2 =0)
 	begin
-		print 'çift bir yıldayız.'
+		print 'Ã§ift bir yÄ±ldayÄ±z.'
 	end
 	else 
 	begin
-		print'tek bir yıldayız.'
+		print'tek bir yÄ±ldayÄ±z.'
 	end
 end
 */
@@ -170,8 +170,8 @@ if exists(select bolno from pers where maas<50000)
 begin select ad,
 case 
 when bolno = 1 then 'elektrik'
-when bolno = 2 then 'bilişim'
-else 'bölümsüz'
+when bolno = 2 then 'biliÅŸim'
+else 'bÃ¶lÃ¼msÃ¼z'
 end as bolum_bilgisi
 from pers
 end
@@ -197,22 +197,22 @@ print 'toplam' + cast (@sayac as nvarchar(10))
 */
 
 /*
---tamsayı bir değişken tanımla ve ona bir değer ata,
---bu değerin karakter türünden bir türe çevir ve ekrana yazdır.
+--tamsayÄ± bir deÄŸiÅŸken tanÄ±mla ve ona bir deÄŸer ata,
+--bu deÄŸerin karakter tÃ¼rÃ¼nden bir tÃ¼re Ã§evir ve ekrana yazdÄ±r.
 declare @x int = 22
 print @x
 print convert(varchar(5),@x) + 'selam'
 */
 
 /*
---belli bi sayı aralığında çift sayıları bulan ve ekrana yazdıran kod
+--belli bi sayÄ± aralÄ±ÄŸÄ±nda Ã§ift sayÄ±larÄ± bulan ve ekrana yazdÄ±ran kod
 declare @say int
 set @say=1
 while @say<100
 begin
 	if (@say%2 = 0)
 	begin
-		print cast (@say as nvarchar(10)) + ' : çifttir'
+		print cast (@say as nvarchar(10)) + ' : Ã§ifttir'
 	end
 	else
 	begin
@@ -223,7 +223,7 @@ end
 */
 
 /*
---bir değişken tanımla ve bu değişkene personel tablosundaki maaş ve bölüm numarasını değerlerini değer olarak atave ekrana yazdır
+--bir deÄŸiÅŸken tanÄ±mla ve bu deÄŸiÅŸkene personel tablosundaki maaÅŸ ve bÃ¶lÃ¼m numarasÄ±nÄ± deÄŸerlerini deÄŸer olarak atave ekrana yazdÄ±r
 declare @maastablo table (maas money,p_no int)
 insert into @maastablo select maas,bolno from pers
 select * from @maastablo
